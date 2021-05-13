@@ -1,0 +1,3 @@
+Instance.new("HopperBin", game.Players.LocalPlayer.Backpack).BinType = 2
+Instance.new("HopperBin", game.Players.LocalPlayer.Backpack).BinType = 3
+Instance.new("HopperBin", game.Players.LocalPlayer.Backpack).BinType = 4
