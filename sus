@@ -1,0 +1,113 @@
+
+		game:GetService("RunService").Heartbeat:Wait();
+			settings().Physics.AllowSleep = false;
+			game:GetService("Players").LocalPlayer.MaximumSimulationRadius = math.huge;
+			setsimulationradius(math.huge);
+
+game.StarterGui:SetCore("SendNotification", { 
+    Title = "pp"; 
+    Text = "Script made by empty#5612"; 
+    Icon = ""; 
+    Duration = 10; 
+})
+
+
+local unanchoredparts = {}
+local movers = {}
+ local tog = true
+ local move = false
+local Player = game:GetService("Players").LocalPlayer
+local Character = Player.Character
+local mov = {};
+local mov2 = {};
+local head = Character:WaitForChild("Pal Hair")
+Hats = {pp1   = Character:WaitForChild("Robloxclassicred"),
+        pp2   = Character:WaitForChild("LavanderHair"),
+       
+}
+
+--Dont touch below
+head.Handle.AccessoryWeld:Remove()
+for i,v in next, Hats do
+v.Handle.AccessoryWeld:Remove()
+for _,mesh in next, v:GetDescendants() do
+if mesh:IsA("Mesh") or mesh:IsA("SpecialMesh") then
+mesh:Remove()
+end
+end
+end
+
+function ftp(str)
+    local pt = {};
+    if str ~= 'me' and str ~= 'random' then
+        for i, v in pairs(game.Players:GetPlayers()) do
+            if v.Name:lower():find(str:lower()) then
+                table.insert(pt, v);
+            end
+        end
+    elseif str == 'me' then
+        table.insert(pt, plr);
+	elseif str == 'random' then
+		table.insert(pt, game.Players:GetPlayers()[math.random(1, #game.Players:GetPlayers())]);
+    end
+    return pt;
+end
+
+function ftp(str)
+    local pt = {};
+    if str ~= 'me' and str ~= 'random' then
+        for i, v in pairs(game.Players:GetPlayers()) do
+            if v.Name:lower():find(str:lower()) then
+                table.insert(pt, v);
+            end
+        end
+    elseif str == 'me' then
+        table.insert(pt, plr);
+	elseif str == 'random' then
+		table.insert(pt, game.Players:GetPlayers()[math.random(1, #game.Players:GetPlayers())]);
+    end
+    return pt;
+end
+
+local function align(i,v)
+local att0 = Instance.new("Attachment", i)
+att0.Position = Vector3.new(0,0,0)
+local att1 = Instance.new("Attachment", v)
+att1.Position = Vector3.new(0,0,0)
+local AP = Instance.new("AlignPosition", i)
+AP.Attachment0 = att0
+AP.Attachment1 = att1
+AP.RigidityEnabled = false
+AP.ReactionForceEnabled = false
+AP.ApplyAtCenterOfMass = true
+AP.MaxForce = 9999999
+AP.MaxVelocity = math.huge
+AP.Responsiveness = 100
+local AO = Instance.new("AlignOrientation", i)
+AO.Attachment0 = att0
+AO.Attachment1 = att1
+AO.ReactionTorqueEnabled = false
+AO.PrimaryAxisOnly = false
+AO.MaxTorque = 9999999
+AO.MaxAngularVelocity = math.huge
+AO.Responsiveness = 50
+end
+
+--Dont touch above
+
+align(head.Handle, Character["Torso"])
+align(Hats.pp1.Handle, Character["Torso"])
+align(Hats.pp2.Handle, Character["Torso"])
+
+head.Handle.Attachment.Rotation = Vector3.new(0,0,0)
+Hats.pp1.Handle.Attachment.Rotation = Vector3.new(0,0,0)
+Hats.pp2.Handle.Attachment.Rotation = Vector3.new(0,0,0)
+
+Character:WaitForChild("Torso"):FindFirstChild("Attachment").Name = "headattachment"
+Character:WaitForChild("Torso"):FindFirstChild("Attachment").Name = "Attachment3"
+Character:WaitForChild("Torso"):FindFirstChild("Attachment").Name = "Attachment4"
+
+
+Character:WaitForChild("Torso").headattachment.Position = Vector3.new(0,-1,-1,0)
+Character:WaitForChild("Torso").Attachment3.Position = Vector3.new(0,-1,-1,0)
+Character:WaitForChild("Torso").Attachment4.Position = Vector3.new(0,-1,-3,0)
